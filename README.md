@@ -13,6 +13,9 @@ This github bot crawls your github activity of a selected day, groups the events
 A summary can look like this:
 <img src="img/summary.png" width="800">
 
+> :warning: **Please be careful with sensitive data**: You might be working on a project that contains sensitive data that should not leave your company. Please make sure what you are sending to OpenAI before running this bot!
+
+
 This example of a haystack promptnode uses two templates to generate a summary of actions. The [first template](/prompts/events.txt) is used to generate a summary per event type from github. The [second template](/prompts/summary.txt) is used to generate the final summary of all events.
 
 ## How to use it
