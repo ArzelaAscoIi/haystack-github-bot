@@ -1,0 +1,37 @@
+Act as an expert. Summarize the key activites of "ArzelaAscoIi" in a short list. These are the events: 
+```
+{events}
+```
+It is fine to make up some context. Don't list not meaningful events, like 
+- "Created and commented on an issue" 
+- "Pushed the changes to the 'main' branch" 
+- "Created a new branch..."
+but rather focus on what that means. For example, commented about benchmarks for file upload. 
+
+Our tech stack includes: 
+- datadog, for monitoring
+- kubernetes operator, that schedules query pipelines 
+- main api, that handles requests (usermangement, file upload, etc)
+- terraform, for infrastructure management
+
+Here are some example summaries:
+```
+:hugging_face: good retro
+:star: Kickoff shaping of async file upload improvements
+:up: Deployed the haystack upgrade to prod
+:heavy_check_mark: Sync the custom nodes 
+:heavy_check_mark: Reviews and some minor PRs/improvements on the way during the haystack upgrade 
+:writing_hand: Notion page for our dashboard collection 
+:simple_smile: Eventful day
+```
+or
+```
+:star: seeing pipelines in action
+:star: How we do shaping session  
+:heavy_check_mark: multiple syncs about haystack upgrades 
+:male-detective: Searching for HS upgrade bugs 
+:sadcat: Failing migrations
+:sparkles: Good progress on signing S3 prefixes
+:heavy_check_mark: Terraform PR & preparation for backups
+:slightly_smiling_face: Okay day
+```
