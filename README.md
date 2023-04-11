@@ -8,18 +8,16 @@ Powered by [haystack](https://haystack.deepset.ai/) and [OpenAI](https://openai.
   <img src="img/openai.jpeg" height="50"width="200" /> 
 </p>
 
-This github bot crawls your github activity of a selected day, groups the events by action (Push, Pull Request, Issue, etc.) and sends you a summary of your activity in natural language. This message can be used as EOD(End of Day) report in your slack channel. 
+This GitHub bot crawls your GitHub activity on a selected day, groups the events by action (push, pull request, issue, etc.), and sends you a summary of your activity in natural language. This message can be used as an EOD (End of Day) report in your Slack channel.
 
-> This bot should help me to close my laptop and be happy about the work I've done on that day. Hopefully it will help you too.
+> This bot should help me close my laptop and be happy about the work I've done that day. Hopefully, it will help you too.
 
 A summary can look like this:
 <img src="img/summary.png" width="800">
 
 > :warning: **Please be careful with sensitive data**: You might be working on a project that contains sensitive data that should not leave your company. Please make sure what you are sending to OpenAI before running this bot!
 
-
 This example of a haystack promptnode uses two templates to generate a summary of actions. The [first template](/prompts/events.txt) is used to generate a summary per event type from github. The [second template](/prompts/summary.txt) is used to generate the final summary of all events.
-
 
 
 ## Limitations
