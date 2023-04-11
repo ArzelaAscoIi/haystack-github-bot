@@ -1,7 +1,7 @@
 # Github EOD BOT 
 A LLM powered github end-of-day bot.
 
-Powered by [haystack](https://haystack.deepset.ai/) and [OpenAI](https://openai.com/)
+Powered by [Haystack](https://haystack.deepset.ai/) and [OpenAI](https://openai.com/)
 
 <p float="left">
   <img src="img/haystack.png" height="50" width="200"/>
