@@ -3,8 +3,10 @@ A LLM powered github end-of-day bot.
 
 Powered by [haystack](https://haystack.deepset.ai/) and [OpenAI](https://openai.com/)
 
-<img src="img/haystack.png" width="200">
-<img src="img/openai.jpeg" width="200">
+<p float="left">
+  <img src="img/haystack.png" width="200" />
+  <img src="img/openai.jpeg" width="200" /> 
+</p>
 
 This github bot crawls your github activity of a selected day, groups the events by action (Push, Pull Request, Issue, etc.) and sends you a summary of your activity in natural language. This message can be used as EOD(End of Day) report in your slack channel. 
 
