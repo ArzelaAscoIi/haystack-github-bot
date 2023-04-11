@@ -1,5 +1,5 @@
 # Github EOD BOT 
-ALLM powered github end-of-day bot.
+A LLM powered github end-of-day bot.
 
 Powered by [haystack](https://haystack.deepset.ai/) and [OpenAI](https://openai.com/)
 
@@ -30,6 +30,10 @@ Run the bot with
 ```sh 
 GH_ACCESS_TOKEN=<your-token> OPENAI_KEY=<openai-key> python3 main.py
 ```
+
+## Limitations
+The challenging part was to make GPT 'hallucinate' just the right amount to connect the dots but not make up facts. The bot is not perfect and will make mistakes. The most common issue I saw in my tests was that the bot lists irrelevant events/actions like `Pushed something to main.` There is still some room for improvement for the prompt templates.
+
 
 
 
