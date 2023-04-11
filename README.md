@@ -18,6 +18,10 @@ A summary can look like this:
 
 This example of a haystack promptnode uses two templates to generate a summary of actions. The [first template](/prompts/events.txt) is used to generate a summary per event type from github. The [second template](/prompts/summary.txt) is used to generate the final summary of all events.
 
+
+
+## Limitations
+The challenging part was to make GPT 'hallucinate' just the right amount to connect the dots but not make up facts. The bot is not perfect and will make mistakes. The most common issue I saw in my tests was that the bot lists irrelevant events/actions like `Pushed something to main.` There is still some room for improvement for the prompt templates.
 ## How to use it
 ### Installation 
 1. Clone this repository
@@ -31,8 +35,6 @@ Run the bot with
 GH_ACCESS_TOKEN=<your-token> OPENAI_KEY=<openai-key> python3 main.py
 ```
 
-## Limitations
-The challenging part was to make GPT 'hallucinate' just the right amount to connect the dots but not make up facts. The bot is not perfect and will make mistakes. The most common issue I saw in my tests was that the bot lists irrelevant events/actions like `Pushed something to main.` There is still some room for improvement for the prompt templates.
 
 
 
