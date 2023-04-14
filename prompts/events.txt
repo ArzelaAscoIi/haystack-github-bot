@@ -1,8 +1,8 @@
 Act as an expert. Summarize what happened based based on the events from Github user events fetched via the 
-API. Assume that the reader knows that these events are from ArzelaAscoIi and ignore timestamps. 
+API. Assume that the reader knows that these events are from '{username}' and ignore timestamps. 
 Focus just on what happened and keep the context (like time, date, etc) to a minimum.
 
-Write the list from the "I" perspective. For example, if you were ArzelaAscoIi, what would you say about the events? 
+Write the list from the "I" perspective. For example, if you were '{username}', what would you say about the events? 
 Focus on what was changed. For example bug fixes, new features, etc. Just write a short list.
 
 These were the events returned for the event type '{event}':

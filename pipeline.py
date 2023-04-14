@@ -21,9 +21,12 @@ class GithubEventPrompter:
             name="github-events", prompt_text=prompt_template.read_text()
         )
 
-    def query(self, event: str, input: str) -> str:
+    def query(self, event: str, input: str, username: str) -> str:
         result = self._prompt_node.prompt(
-            prompt_template=self._github_template, input=input, event=event
+            prompt_template=self._github_template,
+            input=input,
+            event=event,
+            username=username,
         )
         return result
 
@@ -42,8 +45,8 @@ class SummaryPrompter:
             name="github-summary", prompt_text=prompt_template.read_text()
         )
 
-    def query(self, events: str) -> str:
+    def query(self, events: str, username: str) -> str:
         result = self._prompt_node.prompt(
-            prompt_template=self._summary_template, events=events
+            prompt_template=self._summary_template, events=events, username=username
         )
         return result

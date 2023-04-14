@@ -34,7 +34,9 @@ def generate_events():
             reraise=True,
         ):
             with attempt:
-                result = prompter_events.query(event=event, input=json.dumps(payload))
+                result = prompter_events.query(
+                    event=event, input=json.dumps(payload), username=USERNAME
+                )
                 results[event] = {
                     "input": payload,
                     "output": result[0],
@@ -58,9 +60,7 @@ def create_summary():
         entry = f"# {key} \n {value['output']}"
         events += f"\n\n{entry}"
 
-    return prompter_summaries.query(
-        events=events,
-    )
+    return prompter_summaries.query(events=events, username=USERNAME)
 
 
 # fetch events from github and summarize them

@@ -1,4 +1,4 @@
-Act as an expert. Summarize the key activites of "ArzelaAscoIi" in a short list. These are the events: 
+Act as an expert. Summarize the key activites of '{username}' in a short list. These are the events: 
 ```
 {events}
 ```
