@@ -1,6 +1,6 @@
 import os
 
-USERNAME = os.getenv("USERNAME", "arzelaascoii")
+
 OPENAI_KEY = os.getenv("OPENAI_KEY", None)
 if OPENAI_KEY is None:
     raise ValueError("OPENAI_KEY is not set")

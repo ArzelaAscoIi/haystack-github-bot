@@ -1,7 +1,8 @@
 import json
+import os
 from pathlib import Path
 from github_client import GithubClient
-from config import GH_ACCESS_TOKEN, OPENAI_KEY, USERNAME
+from config import GH_ACCESS_TOKEN, OPENAI_KEY
 import structlog
 
 from pipeline import GithubEventPrompter, SummaryPrompter
@@ -9,8 +10,8 @@ from pipeline import GithubEventPrompter, SummaryPrompter
 logger = structlog.get_logger()
 
 # set this to a selected date between today and a couple of days back (limited by GH API pagination limit)
-DATE = "2023-04-07"
-
+DATE = os.getenv("DATE", "2023-04-13")
+USERNAME = os.getenv("USERNAME", "arzelaascoii")
 
 github_client = GithubClient(GH_ACCESS_TOKEN)
 prompter_events = GithubEventPrompter(OPENAI_KEY, Path("./prompts/events.txt"))
@@ -26,14 +27,14 @@ def generate_events():
             "input": payload,
             "output": result[0],
         }
-
-    # write strigified results to file 'DATE.json' in /examples
-    with open(f"./examples/{DATE}.json", "w") as f:
-        f.write(json.dumps(results, indent=4))
+        logger.info("Updating result example  with event ", event=event)
+        # write strigified results to file 'DATE.json' in /examples
+        with open(f"./examples/{DATE}.json", "w") as f:
+            f.write(json.dumps(results, indent=4))
+    logger.info("Done generating event summaries", date=DATE)
 
 
 def create_summary():
-
     # load events from file 'DATE.json' in /examples
     with open(f"./examples/{DATE}.json", "rb") as f:
         event_dict = json.loads(f.read())
@@ -52,4 +53,4 @@ generate_events()
 
 # create summary (EOD message)
 eod_message = create_summary()
-print(eod_message)
+print(eod_message[0])
