@@ -12,8 +12,7 @@ This GitHub bot crawls your GitHub activity on a selected day, groups the events
 
 > This bot should help me close my laptop and be happy about the work I've done that day. Hopefully, it will help you too.
 
-A summary can look like this:
-<img src="img/github-bot-cropped.gif" width="800">
+<img src="img/combined.gif" width="800">
 
 
 > :warning: **Please be careful with sensitive data**: You might be working on a project that contains sensitive data that should not leave your company. Please make sure what you are sending to OpenAI before running this bot!
