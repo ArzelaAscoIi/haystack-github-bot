@@ -1,6 +1,8 @@
 # Github EOD BOT 
 A LLM powered github end-of-day bot.
 
+<img src="img/combined.gif" width="800">
+
 Powered by [Haystack](https://haystack.deepset.ai/) and [OpenAI](https://openai.com/)
 
 <p float="left">
@@ -11,8 +13,6 @@ Powered by [Haystack](https://haystack.deepset.ai/) and [OpenAI](https://openai.
 This GitHub bot crawls your GitHub activity on a selected day, groups the events by action (push, pull request, issue, etc.), and sends you a summary of your activity in natural language. This message can be used as an EOD (End of Day) report in your Slack channel.
 
 > This bot should help me close my laptop and be happy about the work I've done that day. Hopefully, it will help you too.
-
-<img src="img/combined.gif" width="800">
 
 
 > :warning: **Please be careful with sensitive data**: You might be working on a project that contains sensitive data that should not leave your company. Please make sure what you are sending to OpenAI before running this bot!
