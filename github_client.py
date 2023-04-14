@@ -1,7 +1,8 @@
 import fnmatch
-import httpx
-from typing import Any, Dict, List
 from datetime import datetime
+from typing import Any, Dict, List
+
+import httpx
 import structlog
 
 logger = structlog.get_logger(__name__)
@@ -66,6 +67,12 @@ TO_REMOVE = [
     "locked",
     "url",  # might be important
     "href",  # might be important
+    "created_at",  # might be important
+    "pushed_at",  # might be important
+    "submitted_at",  # might be important
+    "email",  # might be important
+    "author_association",  # might be important
+    "auto_merge",  # might be important
 ]
 
 TO_REMOVE_WILDCARD = ["*url*", "*sha*", "*id*"]
@@ -114,7 +121,6 @@ class GithubClient:
         return result
 
     def get_events(self, username: str, date: str) -> List[Dict[str, Any]]:
-
         page = 1
         done = False
 
@@ -122,7 +128,12 @@ class GithubClient:
         while not done:
             if page > 10:
                 raise Exception("Please select a date closer to today.")
-            logger.info("Fetching page", page=page, username=username, date=date)
+            logger.info(
+                "Fetching user events from github",
+                page=page,
+                username=username,
+                date=date,
+            )
             url = f"https://api.github.com/users/{username}/events?per_page=100&page={page}"
             response = httpx.get(url, headers=self.headers)
             response.raise_for_status()
@@ -133,17 +144,15 @@ class GithubClient:
                 events[-1]["created_at"], "%Y-%m-%dT%H:%M:%SZ"
             ) < datetime.fromisoformat(date)
 
-            results += [remove_fields_from_dict(p, TO_REMOVE) for p in events]
-            page += 1
-
-        return self._group_by_event_type(
-            [
-                r
-                for r in results
-                if datetime.strptime(r["created_at"], "%Y-%m-%dT%H:%M:%SZ").date()
+            results += [
+                remove_fields_from_dict(p, TO_REMOVE)
+                for p in events
+                if datetime.strptime(p["created_at"], "%Y-%m-%dT%H:%M:%SZ").date()
                 == datetime.fromisoformat(date).date()
             ]
-        )
+            page += 1
+
+        return self._group_by_event_type(results)
 
     def get_created_issues(self, username: str, date: str) -> List[str]:
         url = f"https://api.github.com/search/issues?q=author:{username}+created:{date}+type:issue"
